@@ -40,12 +40,15 @@ ftp.sendcmd('PASV')
 for filename in filenames:
 	path = os.path.join('uploads', filename)
 	begin = time.time()
-
+	print(filename)
 	with open(path, 'rb') as file_to_upload:
-	 	transfer_to_server = ftp.storbinary('STOR + filename', file_to_upload)
+	 	transfer_to_server = ftp.storbinary('STOR ' + filename, file_to_upload)
 	uploading_time.append((time.time()-begin) * 1000)
 	print(transfer_to_server)
-	print(uploading_time)
+
+print(uploading_time)
+print(ftp.nlst())
+
 ftp.quit()
 
 
