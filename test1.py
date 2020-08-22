@@ -8,7 +8,7 @@ import localset
 
 ftp = ftplib.FTP('speedtest.tele2.net', 'anonymous', 'XXXX')
 filenames = ftp.nlst()
-filenames = localset.cut_list(filenames) # local settings, delete before production 
+# filenames = localset.cut_list(filenames) # local settings, limit files list
 loading_time = []
 
 for filename in filenames:
